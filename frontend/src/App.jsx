@@ -2,11 +2,13 @@ import PropTypes from 'prop-types';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminDashboard from './pages/AdminDashboard';
 import Home from './pages/Home';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import ReadBlog from './pages/ReadBlog';
 import RegisterPage from './pages/RegisterPage';
+import UserManagement from './pages/UserManagement';
 import WriteBlog from './pages/WriteBlog';
 import { getSession } from './utils/auth';
 
@@ -93,7 +95,7 @@ export default function App() {
         element={
           <ProtectedRoute requireAdmin>
             <AuthenticatedPlaceholder>
-              <p className="text-lg font-semibold">Admin dashboard</p>
+              <AdminDashboard />
             </AuthenticatedPlaceholder>
           </ProtectedRoute>
         }
@@ -103,7 +105,7 @@ export default function App() {
         element={
           <ProtectedRoute requireAdmin>
             <AuthenticatedPlaceholder>
-              <p className="text-lg font-semibold">User management</p>
+              <UserManagement />
             </AuthenticatedPlaceholder>
           </ProtectedRoute>
         }
