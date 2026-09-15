@@ -26,6 +26,28 @@
       "vitest"
     ],
     "1": [
+      "frontend_src_app",
+      "frontend_src_app_authenticatedplaceholder",
+      "frontend_src_components_navbar",
+      "frontend_src_components_navbar_navbar",
+      "frontend_src_components_protectedroute",
+      "frontend_src_components_protectedroute_protectedroute",
+      "frontend_src_pages_home",
+      "frontend_src_pages_home_canmanagepost",
+      "frontend_src_pages_home_home",
+      "frontend_src_pages_home_test",
+      "frontend_src_pages_home_test_renderhome",
+      "frontend_src_pages_loginpage",
+      "frontend_src_pages_loginpage_adminsession",
+      "frontend_src_pages_loginpage_loginpage",
+      "frontend_src_pages_registerpage",
+      "frontend_src_pages_registerpage_registerpage",
+      "frontend_src_utils_auth",
+      "frontend_src_utils_auth_clearsession",
+      "frontend_src_utils_auth_getsession",
+      "frontend_src_utils_auth_setsession"
+    ],
+    "2": [
       "frontend_package",
       "frontend_package_dependencies",
       "frontend_package_dependencies_prop_types",
@@ -46,32 +68,25 @@
       "react_dom",
       "react_router_dom"
     ],
-    "2": [
-      "engine_memory_decisions_prd_only_architecture",
-      "plan_admin_governance",
-      "plan_blog_publishing",
-      "plan_identity_protected_navigation",
-      "plan_local_first_persistence",
-      "plan_public_discovery",
-      "plan_static_spa_architecture",
-      "plan_writespace",
-      "plan_writespace_posts",
-      "plan_writespace_session",
-      "plan_writespace_users",
-      "todos_discovery"
-    ],
     "3": [
-      "frontend_src_app",
-      "frontend_src_app_app",
-      "frontend_src_app_getsession",
-      "frontend_src_main",
-      "frontend_src_pages_landingpage",
-      "frontend_src_pages_landingpage_features",
-      "frontend_src_pages_landingpage_getlatestposts",
-      "frontend_src_pages_landingpage_landingpage",
-      "frontend_src_pages_landingpage_test",
-      "frontend_src_pages_landingpage_test_renderwithrouter",
-      "frontend_src_utils_storage_getposts"
+      "frontend_src_components_statcard",
+      "frontend_src_components_statcard_statcard",
+      "frontend_src_pages_admindashboard",
+      "frontend_src_pages_admindashboard_admindashboard",
+      "frontend_src_pages_admindashboard_test",
+      "frontend_src_pages_admindashboard_test_renderdashboard",
+      "frontend_src_pages_writeblog",
+      "frontend_src_pages_writeblog_test",
+      "frontend_src_pages_writeblog_test_rendereditor",
+      "frontend_src_pages_writeblog_writeblog",
+      "frontend_src_utils_storage",
+      "frontend_src_utils_storage_getposts",
+      "frontend_src_utils_storage_getusers",
+      "frontend_src_utils_storage_readarray",
+      "frontend_src_utils_storage_saveposts",
+      "frontend_src_utils_storage_saveusers",
+      "frontend_src_utils_storage_test",
+      "frontend_src_utils_storage_writearray"
     ],
     "4": [
       "frontend_src_components_avatar",
@@ -81,69 +96,163 @@
       "frontend_src_components_blogcard_blogcard",
       "frontend_src_components_blogcard_formatdate",
       "frontend_src_components_publicnavbar",
-      "frontend_src_components_publicnavbar_publicnavbar"
+      "frontend_src_components_publicnavbar_publicnavbar",
+      "frontend_src_pages_landingpage",
+      "frontend_src_pages_landingpage_features",
+      "frontend_src_pages_landingpage_getlatestposts",
+      "frontend_src_pages_landingpage_landingpage",
+      "frontend_src_pages_landingpage_test",
+      "frontend_src_pages_landingpage_test_renderwithrouter"
     ],
     "5": [
-      "frontend_src_utils_storage",
-      "frontend_src_utils_storage_getusers",
-      "frontend_src_utils_storage_readarray",
-      "frontend_src_utils_storage_saveposts",
-      "frontend_src_utils_storage_saveusers",
-      "frontend_src_utils_storage_writearray"
+      "frontend_src_app_app",
+      "frontend_src_main",
+      "frontend_src_pages_loginpage_test",
+      "frontend_src_pages_loginpage_test_renderapp",
+      "frontend_src_pages_registerpage_test",
+      "frontend_src_pages_registerpage_test_completeregistration",
+      "frontend_src_pages_registerpage_test_renderregisterpage"
     ],
     "6": [
-      "frontend_index_main_jsx",
-      "frontend_index_root_mount",
-      "frontend_index_writespace_document"
+      "frontend_src_components_userrow",
+      "frontend_src_components_userrow_userrow",
+      "frontend_src_pages_usermanagement",
+      "frontend_src_pages_usermanagement_defaultadmin",
+      "frontend_src_pages_usermanagement_test",
+      "frontend_src_pages_usermanagement_test_renderusers",
+      "frontend_src_pages_usermanagement_usermanagement"
     ],
     "7": [
+      "frontend_src_pages_readblog",
+      "frontend_src_pages_readblog_canmanagepost",
+      "frontend_src_pages_readblog_formatdate",
+      "frontend_src_pages_readblog_readblog",
+      "frontend_src_pages_readblog_test",
+      "frontend_src_pages_readblog_test_renderreader"
+    ],
+    "8": [
+      "readme_browser_local_storage",
+      "readme_writespace",
+      "readme_writespace_posts",
+      "readme_writespace_session",
+      "readme_writespace_users"
+    ],
+    "9": [
+      "frontend_e2e_identity_spec",
+      "frontend_e2e_identity_spec_capturebrowsererrors",
+      "frontend_e2e_identity_spec_expectnobrowsererrors"
+    ],
+    "10": [
+      "frontend_e2e_admin_governance_spec",
+      "frontend_e2e_admin_governance_spec_capturebrowsererrors"
+    ],
+    "11": [
+      "frontend_e2e_blog_publishing_spec",
+      "frontend_e2e_blog_publishing_spec_capturebrowsererrors"
+    ],
+    "12": [
       "frontend_e2e_discovery_spec",
       "frontend_e2e_discovery_spec_capturepageerrors"
     ],
-    "8": [
+    "13": [
+      "frontend_e2e_mobile_navigation_spec",
+      "frontend_e2e_mobile_navigation_spec_capturebrowsererrors"
+    ],
+    "14": [
+      "frontend_e2e_preflight_spec",
+      "frontend_e2e_preflight_spec_capturebrowsererrors"
+    ],
+    "15": [
+      "readme_nginx_history_fallback",
+      "readme_vercel_spa_rewrite"
+    ],
+    "16": [
       "vercel",
       "vercel_rewrites"
     ],
-    "9": [
+    "17": [
       "frontend_playwright_config"
     ],
-    "10": [
+    "18": [
       "frontend_postcss_config"
     ],
-    "11": [
+    "19": [
       "frontend_src_test_setup"
     ],
-    "12": [
+    "20": [
       "frontend_tailwind_config"
     ],
-    "13": [
+    "21": [
       "frontend_vite_config"
     ],
-    "14": [
+    "22": [
       "frontend_vitest_config"
     ]
   },
   "cohesion": {
     "0": 0.08695652173913043,
-    "1": 0.10526315789473684,
-    "2": 0.19696969696969696,
-    "3": 0.32727272727272727,
-    "4": 0.39285714285714285,
-    "5": 0.5333333333333333,
-    "6": 0.6666666666666666,
-    "7": 1.0,
-    "8": 1.0,
-    "9": 1.0,
+    "1": 0.23157894736842105,
+    "2": 0.10526315789473684,
+    "3": 0.23529411764705882,
+    "4": 0.24175824175824176,
+    "5": 0.2857142857142857,
+    "6": 0.38095238095238093,
+    "7": 0.5333333333333333,
+    "8": 0.7,
+    "9": 0.6666666666666666,
     "10": 1.0,
     "11": 1.0,
     "12": 1.0,
     "13": 1.0,
-    "14": 1.0
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0
   },
   "gods": [
     {
-      "id": "plan_local_first_persistence",
-      "label": "Local-first Persistence",
+      "id": "frontend_src_utils_auth_getsession",
+      "label": "getSession()",
+      "degree": 18
+    },
+    {
+      "id": "frontend_src_utils_storage_getposts",
+      "label": "getPosts()",
+      "degree": 13
+    },
+    {
+      "id": "frontend_src_utils_storage_getusers",
+      "label": "getUsers()",
+      "degree": 9
+    },
+    {
+      "id": "frontend_src_app_app",
+      "label": "App()",
+      "degree": 7
+    },
+    {
+      "id": "frontend_src_components_avatar_avatar",
+      "label": "Avatar()",
+      "degree": 7
+    },
+    {
+      "id": "frontend_src_pages_readblog_readblog",
+      "label": "ReadBlog()",
+      "degree": 7
+    },
+    {
+      "id": "frontend_src_pages_home_home",
+      "label": "Home()",
+      "degree": 6
+    },
+    {
+      "id": "frontend_src_utils_storage_saveposts",
+      "label": "savePosts()",
       "degree": 6
     },
     {
@@ -152,68 +261,44 @@
       "degree": 5
     },
     {
-      "id": "frontend_src_pages_landingpage_landingpage",
-      "label": "LandingPage()",
+      "id": "frontend_src_pages_admindashboard_admindashboard",
+      "label": "AdminDashboard()",
       "degree": 5
-    },
-    {
-      "id": "frontend_src_app_app",
-      "label": "App()",
-      "degree": 4
-    },
-    {
-      "id": "frontend_src_components_avatar_avatar",
-      "label": "Avatar()",
-      "degree": 4
-    },
-    {
-      "id": "frontend_src_utils_storage_getposts",
-      "label": "getPosts()",
-      "degree": 4
-    },
-    {
-      "id": "frontend_src_components_blogcard_blogcard",
-      "label": "BlogCard()",
-      "degree": 3
-    },
-    {
-      "id": "frontend_src_utils_storage_readarray",
-      "label": "readArray()",
-      "degree": 3
-    },
-    {
-      "id": "frontend_src_utils_storage_writearray",
-      "label": "writeArray()",
-      "degree": 3
-    },
-    {
-      "id": "plan_public_discovery",
-      "label": "Public Discovery",
-      "degree": 3
     }
   ],
   "surprises": [
     {
-      "source": "PRD-only Architecture",
-      "target": "Static SPA Architecture",
+      "source": "AuthenticatedPlaceholder()",
+      "target": "getSession()",
       "source_files": [
-        ".engine/memory/decisions.md",
-        "PLAN.md"
+        "frontend/src/App.jsx",
+        "frontend/src/utils/auth.js"
       ],
-      "confidence": "INFERRED",
-      "relation": "semantically_similar_to",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `AuthenticatedPlaceholder()` unexpectedly reaches hub `getSession()`"
     },
     {
-      "source": "Discovery Todo",
-      "target": "Public Discovery",
+      "source": "App()",
+      "target": "getSession()",
       "source_files": [
-        "todos.yaml",
-        "PLAN.md"
+        "frontend/src/App.jsx",
+        "frontend/src/utils/auth.js"
       ],
-      "confidence": "INFERRED",
-      "relation": "semantically_similar_to",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; semantically similar concepts with no structural link"
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "Home()",
+      "target": "getPosts()",
+      "source_files": [
+        "frontend/src/pages/Home.jsx",
+        "frontend/src/utils/storage.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
     },
     {
       "source": "LandingPage()",
@@ -224,7 +309,18 @@
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "cross-file semantic connection"
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "ReadBlog()",
+      "target": "getSession()",
+      "source_files": [
+        "frontend/src/pages/ReadBlog.jsx",
+        "frontend/src/utils/auth.js"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
     }
   ],
   "tokens": {
