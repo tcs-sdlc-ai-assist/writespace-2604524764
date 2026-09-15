@@ -23,20 +23,24 @@ function captureBrowserErrors(page) {
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
-    window.localStorage.clear();
+    if (!window.sessionStorage.getItem('writespace_e2e_initialized')) {
+      window.localStorage.clear();
+      window.sessionStorage.setItem('writespace_e2e_initialized', 'true');
+    }
   });
 });
 
-test('a user publishes, reloads, edits, blocks another author, and deletes their own blog', async ({ page }) => {
+test('a user publishes, reloads, edits, and deletes their own blog', async ({ page }) => {
   const errors = captureBrowserErrors(page);
 
   await page.goto('/register');
   await page.getByLabel('Display name').fill('Ada Writer');
   await page.getByLabel('Username').fill('ada');
-  await page.getByLabel('Password').fill('password');
+  await page.getByLabel('Password', { exact: true }).fill('password');
   await page.getByLabel('Confirm password').fill('password');
   await page.getByRole('button', { name: 'Create account' }).click();
   await expect(page).toHaveURL(/\/blogs$/);
+  await expect(page.getByRole('heading', { name: 'All blogs' })).toBeVisible();
 
   await page.getByRole('link', { name: 'Write a blog' }).first().click();
   await page.getByLabel('Title').fill('Local persistence');
@@ -45,7 +49,6 @@ test('a user publishes, reloads, edits, blocks another author, and deletes their
   await expect(page.getByRole('heading', { name: 'Local persistence' })).toBeVisible();
 
   const createdPost = await page.evaluate(() => JSON.parse(window.localStorage.getItem('writespace_posts'))[0]);
-  const ownerSession = await page.evaluate(() => JSON.parse(window.localStorage.getItem('writespace_session')));
   expect(createdPost).toMatchObject({
     title: 'Local persistence', content: 'A first line\nA second line', authorName: 'Ada Writer', authorRole: 'user',
   });
@@ -59,20 +62,6 @@ test('a user publishes, reloads, edits, blocks another author, and deletes their
   await expect(page.getByText('An edited and persisted line')).toBeVisible();
   await expect(page.evaluate(() => JSON.parse(window.localStorage.getItem('writespace_posts'))[0].content)).resolves.toBe('An edited and persisted line');
 
-  await page.evaluate(() => {
-    window.localStorage.setItem('writespace_session', JSON.stringify({
-      userId: 'another-author', username: 'other', displayName: 'Other Writer', role: 'user',
-    }));
-  });
-  await page.goto(`/edit/${createdPost.id}`);
-  await expect(page).toHaveURL(/\/blogs$/);
-  await expect(page.getByRole('heading', { name: 'Local persistence', level: 3 })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Edit' })).toHaveCount(0);
-
-  await page.evaluate((session) => {
-    window.localStorage.setItem('writespace_session', JSON.stringify(session));
-  }, ownerSession);
-  await page.goto(`/blog/${createdPost.id}`);
   page.once('dialog', async (dialog) => {
     await dialog.accept();
   });
@@ -80,5 +69,32 @@ test('a user publishes, reloads, edits, blocks another author, and deletes their
   await expect(page).toHaveURL(/\/blogs$/);
   await expect(page.getByText('No blogs yet. Be the first to write one!')).toBeVisible();
   await expect(page.evaluate(() => JSON.parse(window.localStorage.getItem('writespace_posts')))).resolves.toEqual([]);
+  expect(errors).toEqual([]);
+});
+
+test('a non-owner initial edit entry returns to blogs without edit controls', async ({ page }) => {
+  const errors = captureBrowserErrors(page);
+  await page.addInitScript(() => {
+    window.localStorage.setItem('writespace_session', JSON.stringify({
+      userId: 'another-author', username: 'other', displayName: 'Other Writer', role: 'user',
+    }));
+    window.localStorage.setItem('writespace_posts', JSON.stringify([
+      {
+        id: 'owned-post',
+        title: 'Local persistence',
+        content: 'An edited and persisted line',
+        createdAt: '2024-04-01T00:00:00.000Z',
+        authorId: 'ada',
+        authorName: 'Ada Writer',
+        authorRole: 'user',
+      },
+    ]));
+  });
+
+  await page.goto('/edit/owned-post');
+
+  await expect(page).toHaveURL(/\/blogs$/);
+  await expect(page.getByRole('heading', { name: 'Local persistence', level: 3 })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Edit' })).toHaveCount(0);
   expect(errors).toEqual([]);
 });

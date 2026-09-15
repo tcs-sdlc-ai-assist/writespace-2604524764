@@ -17,7 +17,7 @@ export default function Navbar({ session }) {
   const isAdmin = session.role === 'Admin';
   const links = isAdmin
     ? [
-        { label: 'All Blogs', to: '/admin' },
+        { label: 'All Blogs', to: '/blogs' },
         { label: 'Write', to: '/write' },
         { label: 'Users', to: '/users' },
       ]

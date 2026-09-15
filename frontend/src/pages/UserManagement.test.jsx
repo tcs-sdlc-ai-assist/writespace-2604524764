@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import UserManagement from './UserManagement';
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 function renderUsers() {
   window.localStorage.setItem('writespace_session', JSON.stringify({ userId: 'current', username: 'current', displayName: 'Current Admin', role: 'Admin' }));
@@ -22,6 +26,26 @@ describe('UserManagement', () => {
     expect(users[0]).toMatchObject({ displayName: 'New Admin', username: 'newadmin', password: 'secret', role: 'Admin' });
     expect(users[0].id).toEqual(expect.any(String));
     expect(users[0].createdAt).toEqual(expect.any(String));
+  });
+
+  it('shows an error and keeps the account list unchanged when creating a user cannot be saved', async () => {
+    const user = userEvent.setup();
+    window.localStorage.setItem('writespace_users', JSON.stringify([{ id: 'existing', displayName: 'Existing User', username: 'existing', role: 'user', createdAt: '2024-01-01T00:00:00.000Z' }]));
+    renderUsers();
+    await user.type(screen.getByLabelText('Display name'), 'New User');
+    await user.type(screen.getByLabelText('Username'), 'newuser');
+    await user.type(screen.getByLabelText('Password'), 'secret');
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('storage unavailable');
+    });
+
+    await user.click(screen.getByRole('button', { name: 'Create User' }));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('We could not save this user. Please try again.');
+    expect(screen.getByText('Existing User')).toBeInTheDocument();
+    expect(screen.queryByText('New User')).not.toBeInTheDocument();
+    setItem.mockRestore();
+    expect(JSON.parse(window.localStorage.getItem('writespace_users'))).toEqual([{ id: 'existing', displayName: 'Existing User', username: 'existing', role: 'user', createdAt: '2024-01-01T00:00:00.000Z' }]);
   });
 
   it('rejects incomplete forms and usernames already used by the default admin', async () => {

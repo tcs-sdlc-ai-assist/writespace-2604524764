@@ -9,7 +9,7 @@ import Avatar from './Avatar';
  * @param {{ session: object|null }} props Component properties.
  * @returns {JSX.Element} Sticky public navigation bar.
  */
-export default function PublicNavbar({ session }) {
+export default function PublicNavbar({ session = null }) {
   const dashboardPath = session?.role === 'Admin' ? '/admin' : '/blogs';
 
   return (
@@ -63,6 +63,3 @@ PublicNavbar.propTypes = {
   }),
 };
 
-PublicNavbar.defaultProps = {
-  session: null,
-};

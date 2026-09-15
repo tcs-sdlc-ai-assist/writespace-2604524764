@@ -47,7 +47,7 @@ function getLatestPosts(posts) {
  * @param {{ session: object|null }} props Component properties.
  * @returns {JSX.Element} Public landing page.
  */
-export default function LandingPage({ session }) {
+export default function LandingPage({ session = null }) {
   const latestPosts = getLatestPosts(getPosts());
   const readingPath = session ? '/blogs' : '/login';
 
@@ -167,6 +167,3 @@ LandingPage.propTypes = {
   }),
 };
 
-LandingPage.defaultProps = {
-  session: null,
-};

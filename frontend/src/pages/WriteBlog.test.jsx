@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import WriteBlog from './WriteBlog';
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 /**
  * Render the editor with a destination that exposes navigation outcomes.
@@ -50,6 +54,26 @@ describe('WriteBlog', () => {
     });
     expect(screen.getByText('Published post')).toBeInTheDocument();
     vi.unstubAllGlobals();
+  });
+
+  it('keeps the editor open and shows an error when publishing cannot be saved', async () => {
+    const user = userEvent.setup();
+    window.localStorage.setItem('writespace_session', JSON.stringify({ userId: 'writer', username: 'writer', displayName: 'Writer', role: 'user' }));
+    window.localStorage.setItem('writespace_posts', JSON.stringify([{ id: 'existing', title: 'Existing post' }]));
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('storage unavailable');
+    });
+
+    renderEditor('/write');
+    await user.type(screen.getByLabelText('Title'), 'A new post');
+    await user.type(screen.getByLabelText('Content'), 'New content');
+    await user.click(screen.getByRole('button', { name: 'Publish blog' }));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('We could not save your post. Please try again.');
+    expect(screen.getByRole('heading', { name: 'Write a blog' })).toBeInTheDocument();
+    expect(screen.queryByText('Published post')).not.toBeInTheDocument();
+    setItem.mockRestore();
+    expect(JSON.parse(window.localStorage.getItem('writespace_posts'))).toEqual([{ id: 'existing', title: 'Existing post' }]);
   });
 
   it('prefills and updates an authorized author post', async () => {

@@ -27,7 +27,7 @@ describe('LoginPage', () => {
     await user.type(screen.getByLabelText('Password'), 'admin');
     await user.click(screen.getByRole('button', { name: 'Sign in' }));
 
-    expect(await screen.findByText('Admin dashboard')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'WriteSpace overview' })).toBeInTheDocument();
     expect(JSON.parse(window.localStorage.getItem('writespace_session'))).toEqual({
       userId: 'admin', username: 'admin', displayName: 'Admin', role: 'Admin',
     });

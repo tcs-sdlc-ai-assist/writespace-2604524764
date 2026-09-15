@@ -1,6 +1,23 @@
 {
   "nodes": [
     {
+      "id": "frontend_e2e_admin_governance_spec",
+      "label": "admin-governance.spec.js",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-governance.spec.js",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_e2e_admin_governance_spec_capturebrowsererrors",
+      "label": "captureBrowserErrors()",
+      "file_type": "code",
+      "source_file": "frontend/e2e/admin-governance.spec.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_e2e_blog_publishing_spec",
       "label": "blog-publishing.spec.js",
       "file_type": "code",
@@ -472,7 +489,7 @@
       "label": "AuthenticatedPlaceholder()",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L19",
+      "source_location": "L21",
       "_callable": true,
       "_origin": "ast"
     },
@@ -481,7 +498,7 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L44",
+      "source_location": "L46",
       "_callable": true,
       "_origin": "ast",
       "community": 3
@@ -598,6 +615,40 @@
       "community": 4
     },
     {
+      "id": "frontend_src_components_statcard",
+      "label": "StatCard.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/StatCard.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_statcard_statcard",
+      "label": "StatCard()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/StatCard.jsx",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_userrow",
+      "label": "UserRow.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_components_userrow_userrow",
+      "label": "UserRow()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L10",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_src_main",
       "label": "main.jsx",
       "file_type": "code",
@@ -605,6 +656,40 @@
       "source_location": "L1",
       "_origin": "ast",
       "community": 3
+    },
+    {
+      "id": "frontend_src_pages_admindashboard",
+      "label": "AdminDashboard.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_admindashboard_admindashboard",
+      "label": "AdminDashboard()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_admindashboard_test",
+      "label": "AdminDashboard.test.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_admindashboard_test_renderdashboard",
+      "label": "renderDashboard()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast"
     },
     {
       "id": "frontend_src_pages_home",
@@ -844,6 +929,48 @@
       "_origin": "ast"
     },
     {
+      "id": "frontend_src_pages_usermanagement",
+      "label": "UserManagement.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_usermanagement_defaultadmin",
+      "label": "defaultAdmin",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L6",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_usermanagement_usermanagement",
+      "label": "UserManagement()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L19",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_usermanagement_test",
+      "label": "UserManagement.test.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.test.jsx",
+      "source_location": "L1",
+      "_origin": "ast"
+    },
+    {
+      "id": "frontend_src_pages_usermanagement_test_renderusers",
+      "label": "renderUsers()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/UserManagement.test.jsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast"
+    },
+    {
       "id": "frontend_src_pages_writeblog",
       "label": "WriteBlog.jsx",
       "file_type": "code",
@@ -1037,6 +1164,16 @@
     }
   ],
   "links": [
+    {
+      "source": "frontend_e2e_admin_governance_spec",
+      "target": "frontend_e2e_admin_governance_spec_capturebrowsererrors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/e2e/admin-governance.spec.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
     {
       "source": "frontend_e2e_blog_publishing_spec",
       "target": "frontend_e2e_blog_publishing_spec_capturebrowsererrors",
@@ -1526,7 +1663,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_home",
+      "target": "frontend_src_pages_admindashboard",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1537,7 +1674,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_landingpage",
+      "target": "frontend_src_pages_home",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1548,7 +1685,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_loginpage",
+      "target": "frontend_src_pages_landingpage",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1559,7 +1696,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_readblog",
+      "target": "frontend_src_pages_loginpage",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1570,7 +1707,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_registerpage",
+      "target": "frontend_src_pages_readblog",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1581,7 +1718,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_writeblog",
+      "target": "frontend_src_pages_registerpage",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1592,7 +1729,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_utils_auth",
+      "target": "frontend_src_pages_usermanagement",
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -1603,12 +1740,34 @@
     },
     {
       "source": "frontend_src_app",
+      "target": "frontend_src_pages_writeblog",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
       "target": "frontend_src_utils_auth_getsession",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L11",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1618,7 +1777,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1628,7 +1787,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L44",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -1802,6 +1961,37 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_components_statcard",
+      "target": "frontend_src_components_statcard_statcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/StatCard.jsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_userrow",
+      "target": "frontend_src_components_avatar",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_components_userrow",
+      "target": "frontend_src_components_userrow_userrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_main",
       "target": "frontend_src_app",
       "relation": "imports_from",
@@ -1809,6 +1999,103 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/main.jsx",
       "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_components_statcard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_utils_storage_getposts",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_utils_storage_saveposts",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_pages_admindashboard_admindashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_test",
+      "target": "frontend_src_app",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_test",
+      "target": "frontend_src_pages_admindashboard",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_test",
+      "target": "frontend_src_pages_admindashboard_test_renderdashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2379,6 +2666,113 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_components_userrow",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_utils_auth",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_utils_auth_getsession",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_utils_storage",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_utils_storage_getusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_utils_storage_saveusers",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_pages_usermanagement_defaultadmin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_pages_usermanagement_usermanagement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement_test",
+      "target": "frontend_src_pages_usermanagement",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.test.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement_test",
+      "target": "frontend_src_pages_usermanagement_test_renderusers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.test.jsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_pages_writeblog",
       "target": "frontend_src_utils_auth",
       "relation": "imports_from",
@@ -2632,7 +3026,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_home_home",
+      "target": "frontend_src_pages_admindashboard_admindashboard",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2643,7 +3037,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_landingpage_landingpage",
+      "target": "frontend_src_pages_home_home",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2654,7 +3048,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_loginpage_loginpage",
+      "target": "frontend_src_pages_landingpage_landingpage",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2665,7 +3059,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_readblog_readblog",
+      "target": "frontend_src_pages_loginpage_loginpage",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2676,7 +3070,7 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_registerpage_registerpage",
+      "target": "frontend_src_pages_readblog_readblog",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -2687,12 +3081,34 @@
     },
     {
       "source": "frontend_src_app",
-      "target": "frontend_src_pages_writeblog_writeblog",
+      "target": "frontend_src_pages_registerpage_registerpage",
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
       "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_pages_usermanagement_usermanagement",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_app",
+      "target": "frontend_src_pages_writeblog_writeblog",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2730,6 +3146,17 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_components_userrow",
+      "target": "frontend_src_components_avatar_avatar",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/components/UserRow.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_main",
       "target": "frontend_src_app_app",
       "relation": "imports",
@@ -2737,6 +3164,39 @@
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/main.jsx",
       "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard",
+      "target": "frontend_src_components_statcard_statcard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_test",
+      "target": "frontend_src_app_app",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_test",
+      "target": "frontend_src_pages_admindashboard_admindashboard",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/AdminDashboard.test.jsx",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2851,6 +3311,28 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_pages_usermanagement",
+      "target": "frontend_src_components_userrow_userrow",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement_test",
+      "target": "frontend_src_pages_usermanagement_usermanagement",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/UserManagement.test.jsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_pages_writeblog_test",
       "target": "frontend_src_pages_writeblog_writeblog",
       "relation": "imports",
@@ -2868,7 +3350,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L20",
+      "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2880,7 +3362,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2893,6 +3375,30 @@
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/ProtectedRoute.jsx",
       "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_admindashboard",
+      "target": "frontend_src_utils_storage_getposts",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_admindashboard_admindashboard",
+      "target": "frontend_src_utils_storage_getusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/AdminDashboard.jsx",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast"
     },
@@ -2981,6 +3487,30 @@
       "_origin": "ast"
     },
     {
+      "source": "frontend_src_pages_usermanagement_usermanagement",
+      "target": "frontend_src_utils_auth_getsession",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
+      "source": "frontend_src_pages_usermanagement_usermanagement",
+      "target": "frontend_src_utils_storage_getusers",
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/UserManagement.jsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast"
+    },
+    {
       "source": "frontend_src_pages_writeblog_writeblog",
       "target": "frontend_src_utils_auth_getsession",
       "relation": "calls",
@@ -3006,10 +3536,10 @@
     }
   ],
   "metadata": {
-    "built_at": "2026-09-15T05:13:07.027276+00:00",
+    "built_at": "2026-09-15T05:17:55.890863+00:00",
     "version": "graph_update-v1",
     "codebase_root": "C:\\artifacts-v2\\T0132PcJVCRTV000115092604524764\\developer",
     "force": true,
-    "files_scanned": 33
+    "files_scanned": 40
   }
 }

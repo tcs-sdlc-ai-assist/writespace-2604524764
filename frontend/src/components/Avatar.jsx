@@ -27,7 +27,7 @@ export function getAvatar(role) {
  * @param {{ name: string, role: string, compact: boolean }} props Component properties.
  * @returns {JSX.Element} Avatar and identity label.
  */
-export default function Avatar({ name, role, compact }) {
+export default function Avatar({ name, role, compact = false }) {
   return (
     <span className="inline-flex items-center gap-2">
       {getAvatar(role)}
@@ -47,6 +47,3 @@ Avatar.propTypes = {
   compact: PropTypes.bool,
 };
 
-Avatar.defaultProps = {
-  compact: false,
-};

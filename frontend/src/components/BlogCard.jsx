@@ -28,7 +28,7 @@ function formatDate(dateValue) {
  * @param {{ post: object, index: number, showAuthor: boolean }} props Component properties.
  * @returns {JSX.Element} Accessible post preview card.
  */
-export default function BlogCard({ post, index, showAuthor }) {
+export default function BlogCard({ post, index = 0, showAuthor = true }) {
   const accentClasses = ['border-indigo-500', 'border-violet-500', 'border-pink-500', 'border-teal-500'];
   const excerpt = typeof post.content === 'string' ? post.content.slice(0, 120) : '';
   const dateLabel = formatDate(post.createdAt);
@@ -80,7 +80,3 @@ BlogCard.propTypes = {
   showAuthor: PropTypes.bool,
 };
 
-BlogCard.defaultProps = {
-  index: 0,
-  showAuthor: true,
-};

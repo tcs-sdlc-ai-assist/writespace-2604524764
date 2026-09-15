@@ -26,12 +26,13 @@ afterEach(() => {
 });
 
 describe('ReadBlog', () => {
-  it('renders the exact missing-post message', () => {
+  it('renders the exact missing-post message with a recovery link to blogs', () => {
     window.localStorage.setItem('writespace_session', JSON.stringify({ userId: 'writer', username: 'writer', displayName: 'Writer', role: 'user' }));
 
     renderReader('/blog/missing');
 
     expect(screen.getByText('Post not found')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Back to blogs' })).toHaveAttribute('href', '/blogs');
   });
 
   it('hides management actions from another author', () => {

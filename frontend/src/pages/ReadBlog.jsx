@@ -63,7 +63,17 @@ export default function ReadBlog() {
   }
 
   if (!post) {
-    return <p className="py-16 text-center text-lg text-slate-600">Post not found</p>;
+    return (
+      <section className="py-16 text-center">
+        <p className="text-lg text-slate-600">Post not found</p>
+        <Link
+          to="/blogs"
+          className="mt-4 inline-block text-sm font-semibold text-indigo-700 underline decoration-indigo-300 underline-offset-4 transition-colors duration-150 hover:text-indigo-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-700"
+        >
+          Back to blogs
+        </Link>
+      </section>
+    );
   }
 
   const mayManage = canManagePost(post, session);

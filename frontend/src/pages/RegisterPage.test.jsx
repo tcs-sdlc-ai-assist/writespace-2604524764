@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import App from '../App';
+
+afterEach(() => {
+  vi.restoreAllMocks();
+});
 
 /**
  * Render the application at the registration route.
@@ -39,7 +43,7 @@ describe('RegisterPage', () => {
     await completeRegistration(user);
     await user.click(screen.getByRole('button', { name: 'Create account' }));
 
-    expect(await screen.findByText('Protected content')).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'All blogs' })).toBeInTheDocument();
     const users = JSON.parse(window.localStorage.getItem('writespace_users'));
     const session = JSON.parse(window.localStorage.getItem('writespace_session'));
     expect(users).toHaveLength(1);
@@ -60,6 +64,7 @@ describe('RegisterPage', () => {
 
   it('rejects mismatched passwords and usernames already taken by the admin or a local user', async () => {
     const user = userEvent.setup();
+    window.localStorage.setItem('writespace_users', JSON.stringify([{ id: 'existing', username: 'jane', displayName: 'Existing Jane', role: 'user' }]));
     renderRegisterPage();
 
     await completeRegistration(user, { password: 'one', confirmation: 'two' });
@@ -74,5 +79,28 @@ describe('RegisterPage', () => {
     await user.type(screen.getByLabelText('Username'), 'admin');
     await user.click(screen.getByRole('button', { name: 'Create account' }));
     expect(screen.getByRole('alert')).toHaveTextContent('That username is already in use.');
+
+    await user.clear(screen.getByLabelText('Username'));
+    await user.type(screen.getByLabelText('Username'), 'jane');
+    await user.click(screen.getByRole('button', { name: 'Create account' }));
+    expect(screen.getByRole('alert')).toHaveTextContent('That username is already in use.');
+    expect(JSON.parse(window.localStorage.getItem('writespace_users'))).toEqual([{ id: 'existing', username: 'jane', displayName: 'Existing Jane', role: 'user' }]);
+    expect(window.localStorage.getItem('writespace_session')).toBeNull();
+  });
+
+  it('shows an error without creating a session when account storage fails', async () => {
+    const user = userEvent.setup();
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('storage unavailable');
+    });
+    renderRegisterPage();
+
+    await completeRegistration(user);
+    await user.click(screen.getByRole('button', { name: 'Create account' }));
+
+    expect(screen.getByRole('alert')).toHaveTextContent('We could not save your account. Please try again.');
+    expect(window.localStorage.getItem('writespace_users')).toBeNull();
+    expect(window.localStorage.getItem('writespace_session')).toBeNull();
+    setItem.mockRestore();
   });
 });

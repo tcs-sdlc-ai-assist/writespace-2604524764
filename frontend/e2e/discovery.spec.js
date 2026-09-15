@@ -23,7 +23,10 @@ function capturePageErrors(page) {
 
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
-    window.localStorage.clear();
+    if (!window.sessionStorage.getItem('writespace_e2e_initialized')) {
+      window.localStorage.clear();
+      window.sessionStorage.setItem('writespace_e2e_initialized', 'true');
+    }
   });
 });
 
@@ -59,8 +62,8 @@ test('renders local latest posts and protects a direct guest post route', async 
   await expect(page.getByRole('heading', { name: 'Latest local draft', level: 3 })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Read post' }).first()).toHaveAttribute('href', '/blog/latest');
 
-  await page.goto('/blog/latest');
+  await page.getByRole('link', { name: 'Read post' }).first().click();
   await expect(page).toHaveURL(/\/login$/);
-  await expect(page.getByText('Login')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Login to your space' })).toBeVisible();
   expect(errors).toEqual([]);
 });

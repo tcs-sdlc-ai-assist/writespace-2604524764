@@ -61,6 +61,6 @@ describe('LandingPage', () => {
 
     renderWithRouter(<App />, '/blog/post-1');
 
-    expect(screen.getByText('Login')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Login to your space' })).toBeInTheDocument();
   });
 });
