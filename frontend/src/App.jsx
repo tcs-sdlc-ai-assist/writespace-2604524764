@@ -1,30 +1,40 @@
+import PropTypes from 'prop-types';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
 import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import { getSession } from './utils/auth';
 
 /**
- * Read the temporary local session shape without allowing malformed browser
- * data to grant access to a protected placeholder route.
+ * Render a minimal authenticated destination while feature-specific pages are added later.
  *
- * @returns {object|null} Current session when it is a valid object.
+ * @param {{ children: React.ReactNode }} props Component properties.
+ * @returns {JSX.Element} Authenticated application shell and placeholder content.
  */
-function getSession() {
-  try {
-    const rawSession = window.localStorage.getItem('writespace_session');
+function AuthenticatedPlaceholder({ children }) {
+  const session = getSession();
 
-    if (!rawSession) {
-      return null;
-    }
-
-    const session = JSON.parse(rawSession);
-    return session && typeof session === 'object' ? session : null;
-  } catch (error) {
-    return null;
+  if (!session) {
+    return <Navigate to="/login" replace />;
   }
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800">
+      <Navbar session={session} />
+      <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6">{children}</main>
+    </div>
+  );
 }
 
+AuthenticatedPlaceholder.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 /**
- * Provide interim public routes and fail-closed placeholders until identity and
- * blog pages replace them in their dedicated feature slices.
+ * Provide public identity routes and fail-closed authenticated placeholders until
+ * the dedicated blog and administration feature slices replace them.
  *
  * @returns {JSX.Element} Application route tree.
  */
@@ -35,37 +45,39 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage session={session} />} />
-      <Route path="/login" element={<p className="p-8 text-slate-800">Login</p>} />
-      <Route path="/register" element={<p className="p-8 text-slate-800">Register</p>} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       {protectedPaths.map((path) => (
         <Route
           key={path}
           path={path}
-          element={session ? <p className="p-8 text-slate-800">Protected content</p> : <Navigate to="/login" replace />}
+          element={
+            <ProtectedRoute>
+              <AuthenticatedPlaceholder>
+                <p className="text-lg font-semibold">Protected content</p>
+              </AuthenticatedPlaceholder>
+            </ProtectedRoute>
+          }
         />
       ))}
       <Route
         path="/admin"
         element={
-          !session ? (
-            <Navigate to="/login" replace />
-          ) : session.role === 'Admin' ? (
-            <p className="p-8 text-slate-800">Admin dashboard</p>
-          ) : (
-            <Navigate to="/blogs" replace />
-          )
+          <ProtectedRoute requireAdmin>
+            <AuthenticatedPlaceholder>
+              <p className="text-lg font-semibold">Admin dashboard</p>
+            </AuthenticatedPlaceholder>
+          </ProtectedRoute>
         }
       />
       <Route
         path="/users"
         element={
-          !session ? (
-            <Navigate to="/login" replace />
-          ) : session.role === 'Admin' ? (
-            <p className="p-8 text-slate-800">User management</p>
-          ) : (
-            <Navigate to="/blogs" replace />
-          )
+          <ProtectedRoute requireAdmin>
+            <AuthenticatedPlaceholder>
+              <p className="text-lg font-semibold">User management</p>
+            </AuthenticatedPlaceholder>
+          </ProtectedRoute>
         }
       />
       <Route path="*" element={<Navigate to="/" replace />} />
